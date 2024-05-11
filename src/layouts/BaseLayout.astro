@@ -1,0 +1,19 @@
+---
+import Header from '../components/Header.astro'
+const { language, langSwitch } = Astro.props
+---
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width' />
+        <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+        <title>@storyblok/astro</title>
+    </head>
+
+    <body>
+        <Header langSwitch={langSwitch} language={language} />
+        <div class='container mx-auto'>
+            <slot />
+        </div>
+    </body>
+</html>
