@@ -2,9 +2,10 @@
 import { useStoryblokApi } from '@storyblok/astro'
 const storyblokApi = useStoryblokApi()
 import { languages, getTransLink, } from '../utils/langs'
+import isPreview from '../utils/isPreview'
 
 const { data } = await storyblokApi.get('cdn/stories/config', {
-    version: 'draft',
+    version: isPreview() ? 'draft' : 'published',
     resolve_links: 'url',
 })
 const headerMenu = data?.story?.content?.header_menu
